@@ -29,11 +29,11 @@ numbers = [4, 9, 1, 7, 2, 5, 0, 3, 7, 1, 3]
 Измененный список:  [4, 81, 1, 49, 2, 25, 0, 9, 49, 1, 9]
 """
 
-# numbers = [4, 9, 1, 7, 2, 5, 0, 3, 7, 1, 3]
-# print("Изначальный список:", numbers)
-# for i in range(len(numbers)):
-#     if numbers[i] % 2 == 0:
-#         continue
-#     else:
-#         numbers[i] = numbers[i] ** 2
-# print("Измененный список: ", numbers)
+numbers = [4, 9, 1, 7, 2, 5, 0, 3, 7, 1, 3]
+print("Изначальный список:", numbers)
+for i in range(len(numbers)):
+    if numbers[i] % 2 == 0:
+        continue
+    else:
+        numbers[i] = numbers[i] ** 2
+print("Измененный список: ", numbers)
