@@ -9,15 +9,15 @@
 ASCII символ: True
 """
 
-selectinp = input("Введите символ: ")
-if len(selectinp) != 1:
-    while len(selectinp) > 1:
-        print ("Пришлите Один символ!")
-        selectinp = input("Введите символ: ")
-print (f"Код Unicode: {ord(selectinp)}")
-print (f"ASCII символ: {ord(selectinp) <= 127}")
+while True:
+    selectinp = input("Введите символ: ")
+    if len(selectinp) != 1:
+        continue
+    print (f"Код Unicode: {ord(selectinp)}",
+           f"ASCII символ: {ord(selectinp) <= 127}",
+           sep="\n")
 
-"""
+"""A
 Задача 2
 Подстрока с заполнением
 Напишите программу, которая принимает строку и индексы начала и конца. Программа должна вывести подстроку на указанных 
@@ -72,7 +72,7 @@ x = text3[::-1]
 i = 0
 alltext = ""
 while i < len(x):
-    if x[i] == "0" or x[i] == "1" or x[i] == "2" or x[i] == "3" or x[i] == "4" or x[i] == "5" or x[i] == "6" or x[i] == "7" or x[i] == "8" or x[i] == "9":
+    if x[i] in "0123456789":
         i += 1
     else:
         alltext += x[i]
