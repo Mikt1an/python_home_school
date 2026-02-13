@@ -72,9 +72,7 @@ x = text3[::-1]
 i = 0
 alltext = ""
 while i < len(x):
-    if x[i] in "0123456789":
-        i += 1
-    else:
+    if x[i] not in "0123456789":
         alltext += x[i]
-        i += 1
+    i += 1
 print(f"Результат: {alltext}")
