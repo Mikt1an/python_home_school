@@ -10,13 +10,11 @@ text = "My number is 123-456-789"
 
 text = "My number is 123-456-789"
 print("Строка: ", text)
-strock = ""
+
 for num in text:
     if num.isdigit():
-        strock += "*"
-    else:
-        strock += num
-print(strock)
+        text = text.replace(num, "*")
+print(text)
 
 """
 Задание №2
