@@ -16,8 +16,6 @@ summa = 0
 for num in numbers:
     if num > 0:
         summa += num
-    else:
-        continue
 print("${:,.2f}".format(summa))
 
 """
