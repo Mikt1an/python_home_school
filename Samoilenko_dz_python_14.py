@@ -18,8 +18,6 @@ for string in strings:
         else:
             if string[:numb+1].isalpha():
                 new_strings.append(string)
-            else:
-                break
         break
 print(new_strings)
 
