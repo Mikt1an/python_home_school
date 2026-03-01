@@ -10,17 +10,12 @@ text_list = ["Hello", "Python Programming", "World", "Advanced Topics", "Simple"
 """
 
 text_list = ["Hello", "Python Programming", "World", "Advanced Topics", "Simple"]
-print(text_list)
-index = 0
-rem = []
-for t_list in text_list:
-    t_list = t_list.lower()
-    text_list[index] = t_list
-    if t_list.find(" ") != -1:
-        rem.append(t_list)
-    index += 1
-for remo in rem:
-    text_list.remove(remo)
+for symbol in text_list[:]:
+    if symbol.find(" ") != -1:
+        text_list.remove(symbol)
+    else:
+        index = text_list.index(symbol)
+        text_list[index] = symbol.lower()
 print(text_list)
 
 """
@@ -40,9 +35,11 @@ Monitor            200.00$       166.00$
 """
 
 products = [["Laptop", 1200], ["Mouse", 25], ["Keyboard", 75], ["Monitor", 200]]
-rabat = int(input("Введите скидку (в процентах): "))
-rabat = rabat / 100
-print(rabat)
+rabat = int(input("Введите скидку (в процентах): ")) / 100
 print(f"{"Name":<10}", f"{"Old Price":>11}", f"{"New Price":>15}")
-for name, price in products:
-    print(f"{name:<10}", f"{price:>10.2f}$", f"{price - (price*rabat):>14.2f}$")
+for product in products:
+    new_price = product[1] - (product[1] * rabat)
+    index = products.index(product)
+    products[index] = [product[0], product[1], new_price]
+for name, old_price, new_price in products:
+    print(f'{name:<10}{old_price:>11.2f}${new_price:>15.2f}$')
