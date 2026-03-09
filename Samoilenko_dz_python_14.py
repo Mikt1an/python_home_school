@@ -12,15 +12,9 @@ strings = ["apple23", "ban1ana45", "12cherry", "grape3", "blue23berry"]
 strings = ["apple23", "ban1ana45", "12cherry", "grape3", "blue23berry"]
 new_strings = []
 for string in strings:
-    for numb in range(len(string)-1, -1, -1):
-        if string[numb].isdigit():
-            continue
-        else:
-            if string[:numb+1].isalpha():
+    for numb in range(len(string)):
+        if string[numb:].isdigit() and string[:numb].isalpha():
                 new_strings.append(string)
-            else:
-                break
-        break
 print(new_strings)
 
 """
