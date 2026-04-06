@@ -10,12 +10,18 @@
 
 set1 = {1, 2, 3, 4}
 set2 = {2, 3}
+
+print("V1")
 ress = True
 for grade in set2:
     if grade not in set1:
         ress = False
         break
-print("Пример вывода:\n", ress)
+print("Пример вывода:", ress)
+
+print("V2")
+result = all(elem in set1 for elem in set2)
+print("Пример вывода:", result)
 
 # Задача 2
 # Зеркальное подмножество
