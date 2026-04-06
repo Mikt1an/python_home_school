@@ -11,22 +11,22 @@
 # [3, 'хорошо']]
 
 
-print("V1")
-grades = [5, 3, 4, 2, 1, 5, 3]
-ress = []
-for grade in grades:
-    match grade:
-        case 5:
-            ress.append([grade, "Отлично"])
-        case 3 | 4:
-            ress.append([grade, "Хорошо"])
-        case _:
-            ress.append([grade, "Неудовлетворительно"])
-print(ress)
-
-print("V2")
-ress = [[grade, "отлично" if grade == 5 else "хорошо" if grade in (3, 4) else "неудовлетворительно"] for grade in grades]
-print(ress)
+# print("V1")
+# grades = [5, 3, 4, 2, 1, 5, 3]
+# ress = []
+# for grade in grades:
+#     match grade:
+#         case 5:
+#             ress.append([grade, "Отлично"])
+#         case 3 | 4:
+#             ress.append([grade, "Хорошо"])
+#         case _:
+#             ress.append([grade, "Неудовлетворительно"])
+# print(ress)
+#
+# print("V2")
+# ress = [[grade, "отлично" if grade == 5 else "хорошо" if grade in (3, 4) else "неудовлетворительно"] for grade in grades]
+# print(ress)
 
 # Задача 2
 # Правильные скобки
@@ -42,12 +42,19 @@ print(ress)
 # Скобки: ([({}()){}])
 # Валидны: True
 
-string = "({[}])"
-# string = "([({}()){}])"
+# string = "({[}])"
+# string = ""
+# string = " "
+# string = "123"
+string = "([({}()){}])"
 print("Скобки", string)
-while True:
-    new_strings = string.replace("()","").replace("[]","").replace("{}","")
-    if new_strings == string:
-        break
-    string = new_strings
-print("Валидны: ", string == "")
+if not string:
+    result = False
+else:
+    while True:
+        new_strings = string.replace("()","").replace("[]","").replace("{}","")
+        if new_strings == string:
+            break
+        string = new_strings
+    result = (string == "")
+print("Валидны: ", result)
