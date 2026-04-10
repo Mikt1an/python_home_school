@@ -6,7 +6,7 @@
 # Введите делитель: 5a
 # Ошибка: Введено некорректное число.
 
-print("V1")
+
 def func_division(dividend : float, divisor : float) -> float :
     """
     Divides two numbers using a custom error handler.
@@ -33,30 +33,6 @@ except ZeroDivisionError:
     print("Ошибка: деление на ноль!")
 
 
-print("V2")
-def safe_division():
-    """
-    Safely divides two numbers.
-
-    Returns the result of a / b. If an error occurs (invalid input or division by zero),
-    returns None instead of raising an exception.
-
-    Input:
-        dividend : float: The dividend value to divide.
-        divisor : float: The divisor value to divide.
-    Return:
-        Division result or None if an error occurs.
-    """
-    try:
-        dividend = float(input("dividend: "))
-        divisor = float(input("divisor: "))
-        return dividend / divisor
-    except (ValueError, ZeroDivisionError) as e:
-        return f"Введено некорректное число. {e}"
-
-
-print(safe_division())
-
 # Задача 2
 # Логирование ошибок
 # Перенаправьте в предыдущей задаче вывод ошибок в файл errors.log в соответствии с форматом ниже.
@@ -73,26 +49,36 @@ logging.basicConfig(
     )
 
 
-def safe_division():
+def safe_division(dividend : float, divisor : float) -> float :
     """
-    Safely divides two numbers.
+    Divides two numbers using a custom error handler.
 
-    Returns the result of a / b. If an error occurs (invalid input or division by zero),
-    returns None instead of raising an exception.
+    This is a higher-order function: it takes another function (handler)
+    to process exceptions (e.g., division by zero).
 
-    Input:
-        dividend : float: The dividend value to divide.
-        divisor : float: The divisor value to divide.
-    Return:
-        Division result or None if an error occurs.
+    Args:
+        dividend (float): The dividend value to divide.
+        divisor (float): The divisor value to divide.
+    Returns:
+        float: The result of the division.
     """
-    try:
-        dividend = float(input("dividend: "))
-        divisor = float(input("divisor: "))
-        return dividend / divisor
-    except (ValueError, ZeroDivisionError) as e:
-        logging.error(f"Ошибка: Введено некорректное число ({e})")
-        return None
+
+    if not isinstance(dividend, (int, float)) or not isinstance(divisor, (int, float)):
+        raise ValueError("Ошибка: Введено некорректное число")
+
+    if divisor == 0:
+        raise ZeroDivisionError (f"Ошибка: Введено некорректное число (ZeroDivisionError)")
+
+    return dividend / divisor
 
 
-print(safe_division())
+try:
+    x = float(input("dividend: "))
+    b = float(input("divisor: "))
+    print(safe_division(x, b))
+except ValueError as e:
+    print(f"Ошибка: Введено некорректное число:")
+    logging.error(f"Ошибка: Введено некорректное число:")
+except ZeroDivisionError as e:
+    print(f"{e}")
+    logging.error(f"{e}")
