@@ -1,11 +1,3 @@
-# Задание 1
-#     Повторения букв
-# Реализуйте функцию, которая принимает текст и возвращает словарь с подсчётом количества каждой буквы,
-# игнорируя регистр.
-# Данные:
-# text = "Programming is fun!"
-# Пример вывода:
-# {'p': 1, 'r': 2, 'o': 1, 'g': 2, 'a': 1, 'm': 2, 'i': 2, 'n': 2, 's': 1, 'f': 1, 'u': 1}
 
 text = "Programming is fun!"
 print("V1")
@@ -48,7 +40,7 @@ def count_letters(texte : str) -> dict[str, int]:
         TypeError : If the input is not a string.
     """
     if not isinstance(texte, str):
-        raise TypeError("Аргумент должен быть строкой")
+        raise TypeError("Argument must be a string")
 
 
     filtered = [char.lower() for char in texte if char.isalpha()]
@@ -58,15 +50,6 @@ def count_letters(texte : str) -> dict[str, int]:
 
 result = count_letters(text)
 print(result)
-
-# Задание 2
-#     Группировка студентов по классам
-# Создайте структуру для группировки студентов по классам.
-# Добавьте студентов в соответствующие группы.
-# Данные:
-# students = [("class1", "Alice"), ("class2", "Bob"), ("class1", "Charlie"), ("class3", "Daisy")]
-# Пример вывода:
-# {'class1': ['Alice', 'Charlie'], 'class2': ['Bob'], 'class3': ['Daisy']}
 
 students = [("class1", "Alice"), ("class2", "Bob"), ("class1", "Charlie"), ("class3", "Daisy")]
 
