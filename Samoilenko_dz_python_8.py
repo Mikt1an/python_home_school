@@ -1,73 +1,34 @@
-"""
-Задача 1
-Проверка кодировки
-Напишите программу, которая принимает от пользователя один символ и выводит его код в таблице Unicode и его
-принадлежность к диапазону ASCII (True/False).
-Пример вывода:
-Введите символ: A
-Код Unicode: 65
-ASCII символ: True
-"""
 
 while True:
-    selectinp = input("Введите символ: ")
+    selectinp = input("Entered symbol : ")
     if len(selectinp) != 1:
         continue
     print (f"Код Unicode: {ord(selectinp)}",
-           f"ASCII символ: {ord(selectinp) <= 127}",
+           f"ASCII symbol: {ord(selectinp) <= 127}",
            sep="\n")
 
-"""A
-Задача 2
-Подстрока с заполнением
-Напишите программу, которая принимает строку и индексы начала и конца. Программа должна вывести подстроку на указанных 
-позициях. Также если конечный индекс выходит за пределы строки, программа заполняет недостающие символы символами _.
-Пример вывода:
-Введите строку: Программирование  
-Введите начальный индекс: 3  
-Введите конечный индекс: 20  
-Подстрока: граммирование_____
-"""
-
-text = input("Введите строку: ")
-indexfirst = int(input("Введите начальный индекс: "))
-indexend = int(input("Введите конечный индекс: "))
+text = input("Entered string: ")
+indexfirst = int(input("Enter the starting index: "))
+indexend = int(input("Enter the ending index: "))
 sres = text[indexfirst:indexend]
 if indexend > len(text):
     miss = indexend - len(text)
     sres += "_" * miss
-print("Подстрока: ", sres)
+print("Substring: ", sres)
 
-"""
-Задача 3
-Подсчёт символа
-Напишите программу, которая принимает строку и символ, а затем подсчитывает, сколько раз символ встречается в строке.
-Пример вывода:
-Введите строку: Hello, world!  
-Введите символ: o  
-Символ o встречается 2 раз(а).
-"""
 
-text2 = input("Введите строку: ")
-textinp = input("Введите символ: ")
+text2 = input("Entered string: ")
+textinp = input("Entered symbol: ")
 i = 0
 sres = 0
 while i < len(text2):
     if text2[i] == textinp:
         sres += 1
     i += 1
-print("Символ o встречается: ", sres)
+print("Symbols meeting: ", sres)
 
-"""
-Задача 4
-Инвертирование строки без цифр
-Напишите программу, которая принимает строку и выводит её в обратном порядке, пропуская все цифры.
-Пример вывода:
-Введите строку: n52uFs6Inoh67ty8P
-Результат: PythonIsFun
-"""
 
-text3 = input("Введите строку: ")
+text3 = input("Entered string: ")
 x = text3[::-1]
 i = 0
 alltext = ""
@@ -75,4 +36,4 @@ while i < len(x):
     if x[i] not in "0123456789":
         alltext += x[i]
     i += 1
-print(f"Результат: {alltext}")
+print(f"Result: {alltext}")
