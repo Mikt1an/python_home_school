@@ -1,12 +1,3 @@
-# Задача 1
-# Проверка на подмножество
-# Напишите программу, которая проверяет, содержит ли первое множество все элементы второго множества.
-# Реализуйте решение несколькими способами. Решите одним из способов не используя возможности множеств.
-# Данные:
-# set1 = {1, 2, 3, 4}
-# set2 = {2, 3}
-# Пример вывода:
-# True
 
 set1 = {1, 2, 3, 4}
 set2 = {2, 3}
@@ -17,28 +8,18 @@ for grade in set2:
     if grade not in set1:
         ress = False
         break
-print("Пример вывода:", ress)
+print("Sample output:", ress)
 
 print("V2")
 result = all(elem in set1 for elem in set2)
-print("Пример вывода:", result)
+print("Sample output:", result)
 
-# Задача 2
-# Зеркальное подмножество
-# Напишите программу, которая проверяет, являются ли элементы одного из множеств подмножеством другого.
-# В случае положительного ответа возвращает разницу между двумя множествами. Проверить необходимо в обе стороны.
-# Данные:
-# set1 = {2, 3, 4, 5, 6}
-# set2 = {4, 5}
-# Пример вывода:
-# Подмножество: True
-# Разница: {2, 3, 6}
 
 set1 = {2, 3, 4, 5, 6}
 set2 = {4, 5}
 if set2.issubset(set1):
-    print("Подмножество: ", set2.issubset(set1))
-    print("Разница: ", set1.difference(set2))
+    print("subset: ", set2.issubset(set1))
+    print("difference: ", set1.difference(set2))
 elif set1.issubset(set2):
-    print("Подмножество: ", set1.issubset(set2))
-    print("Разница: ", set2.difference(set1))
+    print("subset: ", set1.issubset(set2))
+    print("difference: ", set2.difference(set1))
