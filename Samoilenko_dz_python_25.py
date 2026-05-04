@@ -1,11 +1,3 @@
-# Задача 1
-# Деление без ошибок
-# Напишите функцию, которая выполняет деление двух чисел, введенных пользователем, и обрабатывает возможные ошибки.
-# Пример вывода:
-# Введите делимое: 345
-# Введите делитель: 5a
-# Ошибка: Введено некорректное число.
-
 
 def func_division(dividend : float, divisor : float) -> float :
     """
@@ -28,16 +20,10 @@ try:
     b = float(input("divisor: "))
     print(func_division(x, b))
 except ValueError:
-    print("Введено некорректное число.")
+    print("Incorrect number entered.")
 except ZeroDivisionError:
-    print("Ошибка: деление на ноль!")
+    print("Error: Division by zero!")
 
-
-# Задача 2
-# Логирование ошибок
-# Перенаправьте в предыдущей задаче вывод ошибок в файл errors.log в соответствии с форматом ниже.
-# Пример вывода:
-# 2025-02-23 22:38:53,686 - ERROR - test.py - 16 - Ошибка: Введено некорректное число
 
 import logging
 
@@ -64,10 +50,10 @@ def safe_division(dividend : float, divisor : float) -> float :
     """
 
     if not isinstance(dividend, (int, float)) or not isinstance(divisor, (int, float)):
-        raise ValueError("Ошибка: Введено некорректное число")
+        raise ValueError("Incorrect number entered")
 
     if divisor == 0:
-        raise ZeroDivisionError (f"Ошибка: Введено некорректное число (ZeroDivisionError)")
+        raise ZeroDivisionError (f"Incorrect number entered (ZeroDivisionError)")
 
     return dividend / divisor
 
@@ -77,8 +63,8 @@ try:
     b = float(input("divisor: "))
     print(safe_division(x, b))
 except ValueError as e:
-    print(f"Ошибка: Введено некорректное число:")
-    logging.error(f"Ошибка: Введено некорректное число:")
+    print(f"Incorrect number entered: {e}")
+    logging.error(f"Incorrect number entered: {e}")
 except ZeroDivisionError as e:
     print(f"{e}")
     logging.error(f"{e}")
