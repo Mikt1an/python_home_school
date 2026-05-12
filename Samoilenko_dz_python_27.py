@@ -32,12 +32,9 @@ try:
             if line not in unique_file:
                 unique_file.append(line)
 
-        f.close()
-
     new_file = f"unique_{file_name}"
     with open(new_file, "wt", encoding="utf-8") as fi:
         fi.writelines(unique_file)
-        fi.close()
 
     print(f"Duplicates removed. Unique strings are preserved {new_file}")
 
